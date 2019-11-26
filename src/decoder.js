@@ -1,9 +1,10 @@
-const { decode } = require('64');
+// const { decode } = require('64');
 
 module.exports = (encoding, body) => {
   switch (encoding) {
     case 'base64':
-      return decode(body);
+      // return decode(body);
+      return return Buffer.from(body.toString().replace(/\r|\n/g, ''), 'base64');
     case 'quoted-printable':
       return convertQuotedPrintable(body);
     case '8bit':
